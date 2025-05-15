@@ -1,0 +1,9 @@
+10016	IGNORE	情報漏洩
+10020	IGNORE	X-Frame-Options Header
+10021	IGNORE	X-Content-Type-Options Header
+10038	IGNORE	Content Security Policy (CSP) Header Not Set
+10054	IGNORE	Cookie without SameSite Attribute
+10055	IGNORE	CSP: Wildcard Directive
+10063	IGNORE	Permissions Policy Header Not Set
+10109	IGNORE	Modern Web Application
+10202	IGNORE	Absence of Anti-CSRF Tokens 

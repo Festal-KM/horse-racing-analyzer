@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # 毎週日曜日に実行
+
+jobs:
+  frontend-lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: ./frontend/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+
+  backend-lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Configure Poetry
+        run: poetry config virtualenvs.in-project true
+      - name: Install dependencies
+        run: poetry install
+      - name: Run Ruff
+        run: poetry run ruff check .
+        
+  backend-security:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          pip install safety bandit
+      - name: Run security check
+        run: python scripts/security_check.py
+      - name: Archive security reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-security-reports
+          path: ./backend/security_reports/
+          retention-days: 14
+
+  frontend-security:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: ./frontend/package-lock.json
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm install -g snyk
+          npm install eslint-plugin-security
+          mkdir -p scripts
+      - name: Run security check
+        run: node scripts/security_check.js
+      - name: Archive security reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-security-reports
+          path: ./frontend/security_reports/
+          retention-days: 14 
