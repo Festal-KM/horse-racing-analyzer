@@ -4,7 +4,7 @@ from datetime import datetime
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 
-from app.db.database import get_session
+from app.db import get_session
 from app.models.feedback import Feedback
 
 router = APIRouter(prefix="/feedback", tags=["feedback"])
