@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "horse-racing-analyzer-backend"
+version = "0.1.0"
+description = "競馬予想ツールのバックエンドAPI"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = {version = "^0.110.0", extras = ["all"]}
+sqlmodel = "^0.0.12"
+httpx = "^0.26.0"
+beautifulsoup4 = "^4.12.2"
+lxml = "^5.1.0"
+requests-html = "^0.10.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-asyncio = "^0.23.3"
+ruff = "^0.1.9"
+mypy = "^1.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto" 

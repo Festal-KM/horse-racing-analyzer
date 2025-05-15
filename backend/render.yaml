@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: horse-racing-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: DATABASE_URL
+        value: sqlite:///horse_racing.db
+      - key: API_VERSION
+        value: 0.1.0
+      - key: API_TITLE
+        value: Horse Racing Analyzer API
+      - key: CORS_ORIGINS
+        fromGroup: cors-settings
+      - key: ENV
+        value: production
+      - key: SENTRY_DSN
+        value: https://example@o123456.ingest.sentry.io/123456 
