@@ -12,7 +12,7 @@ import {
 import { RepeatIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
-import { useRaceStore, SyncResult } from '@/store/raceStore';
+import { useRaceStore } from '@/store/raceStore';
 
 // 開催場リスト
 const venues = [
@@ -98,7 +98,7 @@ export default function HomePage() {
           isClosable: true,
         });
       }
-    } catch (error) {
+    } catch (syncError) {
       toast({
         title: '同期エラー',
         description: 'データの同期中にエラーが発生しました',

@@ -40,7 +40,7 @@ export interface RaceDetail {
 export interface SyncResult {
   status: string;
   message: string;
-  details?: Array<any>;
+  details?: Array<Record<string, unknown>>;
 }
 
 interface RaceState {

@@ -29,20 +29,7 @@ interface CommentState {
   reset: () => void;
 }
 
-// デバウンス関数（未使用のため削除）
-// const debounce = <F extends (...args: any[]) => any>(
-//   func: F,
-//   wait: number
-// ): ((...args: Parameters<F>) => void) => {
-//   let timeout: NodeJS.Timeout | null = null;
-//   
-//   return (...args: Parameters<F>) => {
-//     if (timeout) clearTimeout(timeout);
-//     timeout = setTimeout(() => func(...args), wait);
-//   };
-// };
-
-export const useCommentStore = create<CommentState>((set, get) => ({
+export const useCommentStore = create<CommentState>((set) => ({
   comments: [],
   isLoading: false,
   error: null,
