@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlmodel import Session, select
 from datetime import datetime
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from typing import Optional
 
 from app.db import get_session
@@ -11,7 +11,7 @@ router = APIRouter(prefix="/feedback", tags=["feedback"])
 
 class FeedbackCreate(BaseModel):
     name: Optional[str] = None
-    email: Optional[EmailStr] = None
+    email: Optional[str] = None
     type: str
     title: str
     description: str
