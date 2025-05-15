@@ -1,0 +1,68 @@
+{
+  "timestamp": "2025-05-15T01:35:25.224Z",
+  "projectDir": "C:\\Users\\miyat\\OneDrive\\ドキュメント\\Work\\宮田個人\\競馬予想ツール\\horse-racing-analyzer\\frontend",
+  "npmAudit": {
+    "scanSuccessful": true,
+    "vulnerabilitiesFound": 0,
+    "vulnerabilities": [],
+    "severityCounts": {
+      "critical": 0,
+      "high": 0,
+      "moderate": 0,
+      "low": 0,
+      "info": 0
+    },
+    "reportFile": "C:\\Users\\miyat\\OneDrive\\ドキュメント\\Work\\宮田個人\\競馬予想ツール\\horse-racing-analyzer\\frontend\\security_reports\\npm_audit_report.json",
+    "summary": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 179,
+        "dev": 633,
+        "optional": 82,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 847
+      }
+    }
+  },
+  "snyk": {
+    "error": "Snyk CLI not installed"
+  },
+  "eslint": {
+    "scanSuccessful": false,
+    "error": "Command failed: npx eslint --no-eslintrc -c C:\\Users\\miyat\\OneDrive\\ドキュメント\\Work\\宮田個人\\競馬予想ツール\\horse-racing-analyzer\\frontend\\security_reports\\.eslintrc-security.json --plugin security --ext .js,.jsx,.ts,.tsx --format json \"C:\\Users\\miyat\\OneDrive\\ドキュメント\\Work\\宮田個人\\競馬予想ツール\\horse-racing-analyzer\\frontend\\src\"\nInvalid option '--eslintrc' - perhaps you meant '--ext'?\nYou're using eslint.config.js, some command line flags are no longer available. Please see https://eslint.org/docs/latest/use/command-line-interface for details.\n"
+  },
+  "owaspCoverage": {
+    "categoryCounts": {
+      "A01:2021-Broken Access Control": 0,
+      "A02:2021-Cryptographic Failures": 0,
+      "A03:2021-Injection": 0,
+      "A04:2021-Insecure Design": 0,
+      "A05:2021-Security Misconfiguration": 0,
+      "A06:2021-Vulnerable Components": 0,
+      "A07:2021-Auth Failures": 0,
+      "A08:2021-Software Data Integrity Failures": 0,
+      "A09:2021-Logging Failures": 0,
+      "A10:2021-SSRF": 0
+    },
+    "issuesByCategory": {
+      "A01:2021-Broken Access Control": [],
+      "A02:2021-Cryptographic Failures": [],
+      "A03:2021-Injection": [],
+      "A04:2021-Insecure Design": [],
+      "A05:2021-Security Misconfiguration": [],
+      "A06:2021-Vulnerable Components": [],
+      "A07:2021-Auth Failures": [],
+      "A08:2021-Software Data Integrity Failures": [],
+      "A09:2021-Logging Failures": [],
+      "A10:2021-SSRF": []
+    }
+  }
+}
