@@ -2,12 +2,13 @@
   "version": 2,
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "installCommand": "npm install",
+  "installCommand": "rm -rf node_modules && rm -rf .next && npm install --legacy-peer-deps",
   "framework": "nextjs",
   "outputDirectory": ".next",
   "env": {
     "NEXT_PUBLIC_API_URL": "https://horse-racing-api.onrender.com",
-    "NEXT_IGNORE_ESLINT_DURING_BUILDS": "true"
+    "NEXT_IGNORE_ESLINT_DURING_BUILDS": "true",
+    "NEXT_TELEMETRY_DISABLED": "1"
   },
   "routes": [
     {
