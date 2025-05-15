@@ -4,5 +4,8 @@
   "private": true,
   "scripts": {
     "vercel-build": "cd frontend && npm install && npm run build"
+  },
+  "dependencies": {
+    "next": "15.3.2"
   }
 } 
