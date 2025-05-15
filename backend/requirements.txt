@@ -8,3 +8,4 @@ requests-html==0.10.0
 python-multipart==0.0.7
 pytest==7.4.0
 pytest-asyncio==0.23.3
+email-validator==2.1.1
